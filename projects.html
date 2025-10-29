@@ -1,258 +1,316 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Lorena Jil Vennemann</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .project-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects | Lorena Jil Vennemann</title>
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            .project-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 16px;
+                padding: 2rem;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+            }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.05), transparent);
-            transition: left 0.5s;
-        }
+            .project-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.05), transparent);
+                transition: left 0.5s;
+            }
 
-        .project-card:hover::before {
-            left: 100%;
-        }
+            .project-card:hover::before {
+                left: 100%;
+            }
 
-        .project-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(0, 255, 136, 0.3);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
+            .project-card:hover {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(0, 255, 136, 0.3);
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1.5rem;
-        }
+            .project-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                margin-bottom: 1.5rem;
+            }
 
-        .project-card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
+            .project-card h3 {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+                color: var(--text);
+            }
 
-        .project-status {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
+            .project-status {
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 500;
+            }
 
-        .status-active {
-            background: rgba(0, 255, 136, 0.15);
-            color: var(--primary);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-        }
+            .status-active {
+                background: rgba(0, 255, 136, 0.15);
+                color: var(--primary);
+                border: 1px solid rgba(0, 255, 136, 0.3);
+            }
 
-        .status-completed {
-            background: rgba(0, 204, 255, 0.15);
-            color: var(--secondary);
-            border: 1px solid rgba(0, 204, 255, 0.3);
-        }
+            .status-completed {
+                background: rgba(0, 204, 255, 0.15);
+                color: var(--secondary);
+                border: 1px solid rgba(0, 204, 255, 0.3);
+            }
 
-        .project-description {
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
+            .status-first {
+                background: rgba(255, 215, 0, 0.15);
+                color: #ffd700;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+            }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
+            .project-description {
+                color: var(--text-muted);
+                line-height: 1.8;
+                margin-bottom: 1.5rem;
+            }
 
-        .tech-tag {
-            padding: 0.4rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            transition: all 0.3s;
-        }
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
 
-        .tech-tag:hover {
-            background: rgba(0, 255, 136, 0.1);
-            border-color: var(--primary);
-            color: var(--primary);
-        }
+            .tech-tag {
+                padding: 0.4rem 1rem;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 20px;
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                transition: all 0.3s;
+            }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
+            .tech-tag:hover {
+                background: rgba(0, 255, 136, 0.1);
+                border-color: var(--primary);
+                color: var(--primary);
+            }
 
-        .project-link {
-            padding: 0.6rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
+            .project-links {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
 
-        .project-link:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: var(--dark);
-            transform: translateY(-2px);
-        }
+            .project-link {
+                padding: 0.6rem 1.5rem;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 8px;
+                color: var(--text);
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: all 0.3s;
+            }
 
-        .projects-grid {
-            display: grid;
-            gap: 2rem;
-        }
-    </style>
-</head>
-<body>
-    <canvas id="particles-canvas"></canvas>
+            .project-link:hover {
+                background: var(--primary);
+                border-color: var(--primary);
+                color: var(--dark);
+                transform: translateY(-2px);
+            }
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">LJV</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+            .projects-grid {
+                display: grid;
+                gap: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="particles-canvas"></canvas>
 
-    <div class="page-container">
-        <div class="page-header">
-            <h1 class="page-title">Projects</h1>
-            <p class="page-subtitle">A selection of my work showcasing different technologies and approaches</p>
-        </div>
-
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div>
-                        <h3>AkwardSilents (Chat App)</h3>
-                        <span class="project-status status-completed">Completed</span>
-                    </div>
-                </div>
-                <p class="project-description">
-                    School project: A chat application similar to WhatsApp, implemented within 8 weeks. Includes front-end and back-end components, real-time messaging, and user management.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Go</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/xxxCam900xxx/M426_AkwardSilents_frontend" class="project-link">View Frontend Code</a>
-                    <a href="https://github.com/xxxCam900xxx/M426_AkwardSilents_backend" class="project-link">View Backend Code</a>
-                </div>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">LJV</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog/blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-            
+        </nav>
 
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div>
-                        <h3>xxx</h3>
-                        <span class="project-status status-completed">Completed</span>
-                    </div>
-                </div>
-                <p class="project-description">
-                    Moderne React-Anwendung für Projektmanagement mit Drag-and-Drop Funktionalität, Real-time Updates und responsivem Design. Backend-Integration über REST API mit Zustandsverwaltung durch Context API.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">REST API</span>
-                    <span class="tech-tag">Context API</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">View Code</a>
-                    <a href="#" class="project-link">Live Demo</a>
-                </div>
+        <div class="page-container">
+            <div class="page-header">
+                <h1 class="page-title">Opensource Projects</h1>
+                <p class="page-subtitle">A selection of my work from newest to oldest - showcasing my journey and growth</p>
             </div>
 
-            <!-- Project 3 -->
+            <div class="projects-grid">
+                
+                 <!-- Project 3: Security Learning Project -->
             <div class="project-card">
                 <div class="project-header">
                     <div>
-                        <h3>Mxxx</h3>
-                        <span class="project-status status-active">In Progress</span>
+                        <h3>Security Vulnerabilities App (Modul 183)</h3>
+                        <span class="project-status status-completed">Completed</span>
+                        <span class="project-date">Created:   Apr 14, 2025</span>
                     </div>
                 </div>
                 <p class="project-description">
-                    Microservices-Architektur deployed auf OpenShift mit mehreren Services (User Service, Product Service, Order Service). Implementierung von Service Discovery, Load Balancing und CI/CD Pipelines. Fokus auf Cloud-Native Best Practices.
+                    School project in Module 183 (Application Security): A deliberately insecure to-do list application in which we had to identify and fix various security vulnerabilities as a team. The project helped me understand and close common security vulnerabilities such as SQL injection, XSS, insecure authentication, and faulty authorization.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">EJS</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/LorenaVennemann/LB2-183" class="project-link" target="_blank">View Code</a>
+                </div>
+                </div>
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>AkwardSilents (Chat App)</h3>
+                            <span class="project-status status-completed">Completed</span>
+                            <span class="project-date">Created:  Jan 22, 2024</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        School project: A chat application similar to WhatsApp, implemented within 8 weeks. Includes front-end and back-end components, real-time messaging, and user management.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Go</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/xxxCam900xxx/M426_AkwardSilents_frontend" class="project-link disabled" onclick="alert('This repository is private and cannot be viewed.')">View Frontend Code (Private)</a>
+                        <a href="https://github.com/xxxCam900xxx/M426_AkwardSilents_backend" class="project-link disabled" onclick="alert('This repository is private and cannot be viewed.')">View Backend Code (Private)</a>
+                    </div>
+                </div>            
+ 
+
+            <!-- Project 4: Espresso Shop -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3>Espresso Shop (Modul 322)</h3>
+                        <span class="project-status status-completed">Completed</span>
+                        <span class="project-date">Created:  Nov 6, 2023</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    E-Commerce Website für einen fiktiven Kaffee-Shop im Modul 322. Eine vollständige Online-Shop Anwendung mit React, wo Kunden verschiedene Kaffeesorten durchsuchen und kaufen können. Das Projekt half mir, React-Komponenten, State Management und die Erstellung einer interaktiven Benutzeroberfläche zu lernen.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">REACT</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/LorenaVennemann/Espresso.M322TBZ/tree/main/Aufgaben%20React%20Vorbereitung" class="project-link" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <!-- Project: REST API Applikation -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3>REST API Applikation</h3>
+                        <span class="project-status status-completed">Completed</span>
+                        <span class="project-date">Created: Mar 24, 2023</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    This project is a REST API application created with Spring Boot as a project for üK 295: Backend Development.
+                    The application uses PostgreSQL as its database and can be run with Docker, Intellij, and Postman. After startup,
+                    endpoints can be tested via Swagger UI.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">Java</span>
                     <span class="tech-tag">Spring Boot</span>
-                    <span class="tech-tag">OpenShift</span>
-                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">REST API</span>
                     <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">CI/CD</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Postman</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link">View Code</a>
+                    <a href="https://github.com/Timofey-Makhankov/ueK_295TiMak_Projekt_Arbeit" class="project-link" target="_blank">View Code</a>
                 </div>
             </div>
 
-            <!-- Project 4 -->
+
+                 <!-- Project 2: JustBakeCookies -->
+                 <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>JustBakeCookies</h3>
+                            <span class="project-status status-first">My First Website</span>
+                            <span class="project-status status-completed">Completed</span>
+                            <span class="project-date">Created: Dec 9, 2022</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        My very first website from my first year of training! A small site with cookie recipes, several subpages, and even responsive design. This project was my introduction to web development and taught me the basics of HTML and CSS. Today, not everything works perfectly anymore, but I don't want to change anything—it's my reminder of how I started.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/LorenaVennemann/JustBakeCookies" class="project-link" target="_blank">View Code</a>
+                    </div>
+                </div>
+                
+                   <!-- Project 3: First C Program -->
             <div class="project-card">
                 <div class="project-header">
                     <div>
-                        <h3>xxx</h3>
+                        <h3>Guess My Number Game </h3>
+                        <span class="project-status status-first">My First C Program</span>
                         <span class="project-status status-completed">Completed</span>
+                        <span class="project-date">Created: Oct 5, 2022</span>
                     </div>
                 </div>
                 <p class="project-description">
-                    Automatisierte Pipeline für Datenverarbeitung und -analyse. Verarbeitet große Datenmengen, führt Transformationen durch und speichert Ergebnisse in einer relationalen Datenbank. Optimiert für Performance mit Multi-Threading.
+                    My very first program in C after only one month of training! A simple number guessing game where the player has to guess a random number between 1 and 100—with eight attempts and hints as to whether the number is higher or lower. This project taught me the basics of C: variables, loops, conditions, and user input.
                 </p>
                 <div class="tech-stack">
-                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">C</span>
                     <span class="tech-tag">C++</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">MySQL</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link">View Code</a>
+                    <a href="https://github.com/LorenaVennemann/-Done-of-Done---L.J.V/blob/main/Defenition_of_Done%20_eigenes_file/main.c" class="project-link" target="_blank">View Code</a>
                 </div>
             </div>
 
-            <div class="project-card" style="border: 2px dashed rgba(255, 255, 255, 0.1); background: transparent;">
-                <div style="text-align: center; padding: 2rem 0;">
-                    <h3 style="color: var(--text-muted); margin-bottom: 1rem;">More Projects Coming Soon</h3>
-                    <p style="color: var(--text-muted);">
-xxx                    </p>
+                <!-- Coming Soon -->
+                <div class="project-card" style="border: 2px dashed rgba(255, 255, 255, 0.1); background: transparent;">
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <h3 style="color: var(--text-muted); margin-bottom: 1rem;">More Projects Coming Soon</h3>
+                        <p style="color: var(--text-muted);">
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="particles.js"></script>
-</body>
-</html>
+        <script src="particles.js"></script>
+    </body>
+    </html>

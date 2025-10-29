@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lorena Jil Vennemann | Full Stack Developer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <canvas id="particles-canvas"></canvas>
@@ -16,7 +16,7 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog/blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
@@ -40,7 +40,7 @@
             
             <div class="hero-tags">
                 <span class="tag">Backend</span>
-                <span class="tag">RFrontend</span>
+                <span class="tag">Frontend</span>
                 <span class="tag">Cloud Native</span>
                 <span class="tag">Git</span>
             </div>
@@ -60,11 +60,11 @@
     <script>
         const scrollIndicator = document.querySelector('.scroll-indicator');
 
-window.addEventListener('load', () => {
-    if (document.body.scrollHeight <= window.innerHeight) {
-        scrollIndicator.style.display = 'none';
-    }
-});
+        window.addEventListener('load', () => {
+            if (document.body.scrollHeight <= window.innerHeight) {
+                scrollIndicator.style.display = 'none';
+            }
+        });
 
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with OpenShift | Lorena Jil Vennemann</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .blog-detail {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: gap 0.3s;
+        }
+
+        .back-link:hover {
+            gap: 1rem;
+        }
+
+        .blog-detail-header {
+            margin-bottom: 3rem;
+        }
+
+        .blog-detail-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .blog-detail-category {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .blog-detail h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .blog-content {
+            color: var(--text-muted);
+            line-height: 1.9;
+            font-size: 1.1rem;
+        }
+
+        .blog-content h2 {
+            color: var(--text);
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content h3 {
+            color: var(--text);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-content code {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+        }
+
+        .blog-content pre {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .author-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .author-section h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .related-posts {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .related-posts h3 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 255, 136, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .related-card h4 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .related-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LJV</a>
+            <ul class="nav-menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="blog-detail">
+            <a href="blog.html" class="back-link">← Zurück zum Blog</a>
+
+            <div class="blog-detail-header">
+                <span class="blog-detail-category">OpenShift</span>
+                <h1>Getting Started with OpenShift: My Journey into Container Orchestration</h1>
+                <div class="blog-detail-meta">
+                    <span>📅 Oktober 2025</span>
+                    <span>⏱️ 8 min read</span>
+                </div>
+            </div>
+
+            <div class="blog-content">
+                <p>
+                    Als ich zum ersten Mal von OpenShift hörte, war ich zunächst etwas überwältigt. Container? Orchestrierung? Kubernetes? Das klang alles sehr komplex. Doch nach einigen Monaten intensiver Arbeit mit dieser Technologie kann ich sagen: OpenShift hat meine Sichtweise auf Software-Deployment grundlegend verändert.
+                </p>
+
+                <h2>Was ist OpenShift eigentlich?</h2>
+                <p>
+                    OpenShift ist eine Container-Plattform von Red Hat, die auf Kubernetes basiert. Aber was bedeutet das konkret? Stell dir vor, du hast eine Anwendung, die du auf verschiedenen Umgebungen deployen möchtest – Development, Testing, Production. Mit OpenShift kannst du deine Anwendung in Container packen und diese Container überall konsistent ausführen.
+                </p>
+
+                <blockquote>
+                    "Container haben die Art und Weise, wie wir Software entwickeln und deployen, revolutioniert. OpenShift macht diese Technologie zugänglich und beherrschbar."
+                </blockquote>
+
+                <h2>Meine ersten Schritte</h2>
+                <p>
+                    Mein Einstieg in OpenShift begann mit einem internen Schulungsprojekt bei SIX. Die ersten Tage waren definitiv eine Herausforderung, aber ich habe schnell gelernt, wie leistungsfähig diese Plattform ist.
+                </p>
+
+                <h3>Die wichtigsten Konzepte</h3>
+                <ul>
+                    <li><strong>Pods:</strong> Die kleinste deploybare Einheit in OpenShift – ein oder mehrere Container, die zusammen laufen</li>
+                    <li><strong>Services:</strong> Definieren, wie Pods miteinander und mit der Außenwelt kommunizieren</li>
+                    <li><strong>Routes:</strong> Ermöglichen externen Zugriff auf deine Services</li>
+                    <li><strong>DeploymentConfigs:</strong> Beschreiben, wie deine Anwendung deployed werden soll</li>
+                    <li><strong>BuildConfigs:</strong> Automatisieren das Erstellen von Container-Images</li>
+                </ul>
+
+                <h3>Mein erstes Deployment</h3>
+                <p>
+                    Für mein erstes OpenShift-Projekt habe ich eine einfache Spring Boot Anwendung deployed. Hier ist, was ich gelernt habe:
+                </p>
+
+                <pre><code># Login in OpenShift Cluster
+oc login https://api.cluster.example.com
+
+# Neues Projekt erstellen
+oc new-project my-first-app
+
+# Anwendung aus Git-Repository deployen
+oc new-app https://github.com/username/spring-boot-app.git
+
+# Route erstellen für externen Zugriff
+oc expose svc/spring-boot-app</code></pre>
+
+                <p>
+                    Das war's! Mit diesen vier Befehlen hatte ich meine erste Anwendung in OpenShift am Laufen. Natürlich gibt es noch viel mehr zu lernen, aber dieser erste Erfolg hat mich motiviert, tiefer einzutauchen.
+                </p>
+
+                <h2>Challenges und Learnings</h2>
+                <p>
+                    Nicht alles lief glatt. Hier sind einige Herausforderungen, auf die ich gestoßen bin:
+                </p>
+
+                <ol>
+                    <li><strong>Ressourcen-Management:</strong> Zu wenig Memory oder CPU führt zu Pod-Crashes. Zu viel verschwendet Ressourcen.</li>
+                    <li><strong>Networking:</strong> Die Kommunikation zwischen verschiedenen Services zu verstehen, brauchte Zeit.</li>
+                    <li><strong>Security:</strong> OpenShift hat strikte Security-Policies – das ist gut, aber anfangs frustrierend.</li>
+                    <li><strong>Logging und Monitoring:</strong> Fehlersuche in einem verteilten System ist anders als bei monolithischen Anwendungen.</li>
+                </ol>
+
+                <h2>Warum OpenShift die Zukunft ist</h2>
+                <p>
+                    Nach meiner Erfahrung mit OpenShift verstehe ich, warum immer mehr Unternehmen auf Container-Orchestrierung setzen:
+                </p>
+
+                <ul>
+                    <li>Konsistente Deployments über alle Umgebungen hinweg</li>
+                    <li>Einfaches Skalieren von Anwendungen</li>
+                    <li>Bessere Ressourcen-Nutzung</li>
+                    <li>Schnellere Entwicklungszyklen</li>
+                    <li>Robustheit durch Self-Healing</li>
+                </ul>
+
+                <h2>Tipps für Einsteiger</h2>
+                <p>
+                    Wenn du mit OpenShift starten möchtest, hier sind meine Empfehlungen:
+                </p>
+
+                <ul>
+                    <li>Starte mit dem Interactive Learning Portal von Red Hat</li>
+                    <li>Installiere die OpenShift CLI (oc) auf deinem lokalen System</li>
+                    <li>Beginne mit einfachen Projekten und steigere die Komplexität langsam</li>
+                    <li>Verstehe die Kubernetes-Grundlagen – OpenShift baut darauf auf</li>
+                    <li>Nutze die OpenShift-Community – es gibt viele hilfsbereite Entwickler</li>
+                </ul>
+
+                <h2>Fazit</h2>
+                <p>
+                    OpenShift zu lernen war eine der wertvollsten Erfahrungen in meiner Ausbildung. Es hat mir nicht nur geholfen, moderne Cloud-Native-Entwicklung zu verstehen, sondern auch meine Fähigkeit verbessert, komplexe Systeme zu verstehen und zu managen.
+                </p>
+                <p>
+                    Wenn du dich für Cloud-Technologien interessierst, kann ich dir nur empfehlen, dich mit Container-Orchestrierung auseinanderzusetzen. Es ist definitiv eine Investition wert!
+                </p>
+            </div>
+
+            <div class="author-section">
+                <h3>Über die Autorin</h3>
+                <p style="color: var(--text-muted); line-height: 1.8;">
+                    Lorena Jil Vennemann ist im 4. Lehrjahr ihrer Ausbildung zur Software-Entwicklerin bei SIX. Sie interessiert sich besonders für Cloud-Native Development, Backend-Technologien und DevOps-Praktiken.
+                </p>
+            </div>
+
+            <div class="related-posts">
+                <h3>Weitere Artikel</h3>
+                <div class="related-grid">
+                    <a href="blog-post-spring-boot.html" class="related-card">
+                        <h4>Spring Boot Best Practices</h4>
+                        <p>Lessons from Real Projects</p>
+                    </a>
+                    <a href="blog-post-cicd.html" class="related-card">
+                        <h4>CI/CD Pipelines</h4>
+                        <p>Automating the Development Workflow</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="particles.js"></script>
+</body>
+</html>
