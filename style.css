@@ -22,7 +22,33 @@ body {
     overflow-x: hidden;
 }
 
-/* Particles Canvas */
+.social-link img {
+    width: 60%; 
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0.9);
+}
+
+.social-link:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.social-link img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .social-link img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
 #particles-canvas {
     position: fixed;
     top: 0;
@@ -33,7 +59,6 @@ body {
     pointer-events: none;
 }
 
-/* Navigation */
 .navbar {
     position: fixed;
     top: 0;
@@ -103,7 +128,6 @@ body {
     width: 100%;
 }
 
-/* Hero Section */
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -266,7 +290,6 @@ body {
     }
 }
 
-/* Page Container */
 .page-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -293,14 +316,12 @@ body {
     margin: 0 auto;
 }
 
-/* Content Grid */
 .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-/* Cards */
 .card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -327,7 +348,6 @@ body {
     line-height: 1.8;
 }
 
-/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -348,7 +368,6 @@ body {
     }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .nav-menu {
         gap: 1.5rem;

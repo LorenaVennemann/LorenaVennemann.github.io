@@ -35,14 +35,14 @@
             </h1>
             
             <p class="hero-subtitle">
-                Full Stack Developer specializing in Java & React
+                4th-year Software Developer Apprentice @ SIX
             </p>
             
             <div class="hero-tags">
                 <span class="tag">Backend</span>
-                <span class="tag">Frontend</span>
-                <span class="tag">OpenShift</span>
+                <span class="tag">RFrontend</span>
                 <span class="tag">Cloud Native</span>
+                <span class="tag">Git</span>
             </div>
             
             <div class="hero-cta">
@@ -58,7 +58,14 @@
     </main>
 
     <script>
-        // Subtle particle animation
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+
+window.addEventListener('load', () => {
+    if (document.body.scrollHeight <= window.innerHeight) {
+        scrollIndicator.style.display = 'none';
+    }
+});
+
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         
@@ -138,8 +145,7 @@
             canvas.height = window.innerHeight;
         });
         
-        // Terminal typing effect
-        const text = 'whoami';
+        const text = 'Welcome to my Portfolio';
         const typedElement = document.getElementById('typed-text');
         let charIndex = 0;
         

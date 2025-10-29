@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Lorena Jil Vennemann</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Root Variables */
+        :root {
+            --primary: #00ff88;
+            --secondary: #00ccff;
+            --dark: #0a0a0a;
+            --dark-light: #1a1a1a;
+            --text: #ffffff;
+            --text-muted: #aaaaaa;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Global */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; padding: 1rem 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text); letter-spacing: 0.05em; transition: var(--transition); }
+        .logo:hover { color: var(--primary); }
+        .nav-menu { display: flex; gap: 2rem; list-style: none; }
+        .nav-menu a { color: var(--text-muted); font-size: 0.95rem; position: relative; transition: var(--transition); }
+        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--text); }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+
+        /* Page Container */
+        .page-container { max-width: 1200px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+
+        /* Header */
+        .page-header { text-align: center; margin-bottom: 4rem; }
+        .page-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1rem; }
+        .page-subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; }
+
+        /* Hero Tags */
+        .hero-tags { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+        .tag { padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); transition: all 0.3s ease; cursor: default; }
+        .tag:hover { background: rgba(0, 255, 136, 0.15); border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+
+        /* Card */
+        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; transition: all 0.3s ease; }
+        .card:hover { background: rgba(0, 255, 136, 0.05); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2); }
+
+        /* Skills Section */
+        .skills-section { margin-bottom: 4rem; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .skills-grid ul { list-style: none; margin-top: 1rem; padding: 0; }
+        .skills-grid li { color: var(--text-muted); padding: 0.5rem 0; }
+        .skills-grid strong { color: var(--primary); }
+
+        /* Focus Card */
+        .focus-card { max-width: 800px; margin: 0 auto; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); }
+
+        /* Responsive */
+        @media (max-width: 768px) { .nav-menu { gap: 1rem; font-size: 0.9rem; } .page-container { padding: 6rem 1.5rem 3rem; } .skills-grid { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
     <canvas id="particles-canvas"></canvas>
@@ -25,99 +84,80 @@
     <div class="page-container">
         <div class="page-header">
             <h1 class="page-title">About Me</h1>
-            <p class="page-subtitle">Full Stack Developer with a passion for backend systems and cloud-native technologies</p>
+            <p class="page-subtitle">Software Developer Apprentice focusing on Backend & Cloud-Native technologies</p>
+            <div class="hero-tags">
+                <span class="tag">Backend</span>
+                <span class="tag">Frontend</span>
+                <span class="tag">Cloud Native</span>
+                <span class="tag">Git</span>
+            </div>
         </div>
-
-        <section style="margin-bottom: 4rem;">
-            <div class="card" style="max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Hey! Ich bin Lorena, aktuell im 4. Lehrjahr als Full Stack Developer. Meine Reise in der Softwareentwicklung begann mit einer Faszination für das Zusammenspiel von Frontend und Backend – heute liegt mein Fokus klar auf der Backend-Entwicklung und Cloud-Technologien.
+        <section>
+            <div class="card">
+                <p>
+                    Hi! I'm Lorena, currently in my 4th year as a Software Developer Apprentice @ SIX. I am passionate about building robust backend systems and modern cloud applications. During my apprenticeship, I have been working extensively with <strong>Java</strong> and <strong>React</strong>.
                 </p>
-                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Während meiner Ausbildung habe ich mich intensiv mit <strong style="color: var(--primary);">Java</strong> und <strong style="color: var(--primary);">React</strong> beschäftigt und arbeite täglich an der Entwicklung robuster, skalierbarer Anwendungen. Besonders spannend finde ich die Herausforderungen im Backend – Performance-Optimierung, Datenbank-Design und API-Entwicklung.
+                <p style="margin-top:1rem;">
+                    In my 3rd year of training, I had the opportunity to work for one month abroad at an external company, <strong>Archr</strong> in Stockholm. This experience gave me valuable international exposure and insights into professional software development practices.
                 </p>
-                <p style="font-size: 1.1rem; line-height: 1.8;">
-                    Mein aktueller Fokus liegt auf <strong style="color: var(--secondary);">OpenShift und Kubernetes</strong>. Die Welt der Container-Orchestrierung und Cloud-Native-Entwicklung fasziniert mich, und ich arbeite kontinuierlich daran, meine DevOps-Skills auszubauen. Mein Ziel ist es, moderne, cloud-ready Anwendungen zu entwickeln, die wirklich Skalieren können.
+                <p style="margin-top:1rem;">
+                    I especially enjoy performance optimization, API development, and discovering new technologies to improve my skills. My goal is to create applications that are scalable, reliable, and future-proof.
                 </p>
             </div>
         </section>
+        
+        <section>
+            <h2 class="section-title">Hobbies & Free Time</h2>
+            <div class="card">
+                <p>
+                    In my free time, I practice martial arts and go to the gym. I enjoy challenging myself physically as much as mentally, and these activities help me stay focused, disciplined, and motivated.
+                </p>
+            </div>
+        </section>        
 
-        <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Skills & Technologies</h2>
-            <div class="content-grid">
-                <div class="card">
+        <section class="skills-section">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="card skill-card">
                     <h3>Backend Development</h3>
-                    <ul style="list-style: none; margin-top: 1rem;">
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">Java</strong> – Spring Boot, REST APIs, Microservices
-                        </li>
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">SQL</strong> – PostgreSQL, MySQL, Datenbank-Design
-                        </li>
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">C++</strong> – Grundlagen & Performance-kritische Anwendungen
-                        </li>
+                    <ul>
+                        <li><strong>Java</strong> – Spring Boot, REST APIs, Microservices</li>
+                        <li><strong>SQL</strong> – HeidiSQL, MySQL</li>
+                        <li><strong>C++</strong> – Basics & performance-critical applications</li>
                     </ul>
                 </div>
-
-                <div class="card">
+                <div class="card skill-card">
                     <h3>Frontend Development</h3>
-                    <ul style="list-style: none; margin-top: 1rem;">
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">React</strong> – Hooks, Context API, State Management
-                        </li>
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">JavaScript</strong> – ES6+, Async/Await, Modern JS
-                        </li>
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">HTML/CSS</strong> – Responsive Design, Flexbox, Grid
-                        </li>
+                    <ul>
+                        <li><strong>React</strong> – Hooks, Context API, State Management</li>
+                        <li><strong>TypeScript / JavaScript</strong> – Modern JS (ES6+), Async/Await</li>
+                        <li><strong>HTML/CSS</strong> – Responsive Design, Flexbox, Grid</li>
                     </ul>
                 </div>
-
-                <div class="card">
+                <div class="card skill-card">
                     <h3>Cloud & DevOps</h3>
-                    <ul style="list-style: none; margin-top: 1rem;">
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">OpenShift</strong> – Container Platform, Deployments
-                        </li>
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">Kubernetes</strong> – Orchestration, Pods, Services
-                        </li>
-                        <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                            <strong style="color: var(--text);">Docker</strong> – Containerization, Compose
-                        </li>
+                    <ul>
+                        <li><strong>OpenShift</strong> – Container Platform, Deployments</li>
+                        <li><strong>Kubernetes</strong> – Orchestration, Pods, Services</li>
+                        <li><strong>Docker</strong> – Containerization, Compose</li>
+                        <li><strong>Podman</strong> – Containerization, Compose</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Aktueller Fokus</h2>
-            <div class="card" style="max-width: 800px; margin: 0 auto; background: rgba(0, 255, 136, 0.05); border-color: rgba(0, 255, 136, 0.2);">
-                <h3 style="margin-bottom: 1.5rem;">Cloud-Native Development & DevOps</h3>
-                <p style="margin-bottom: 1rem;">
-                    Ich vertieife mich aktuell intensiv in OpenShift und die Cloud-Native-Welt. Mein Ziel ist es, nicht nur Code zu schreiben, sondern auch zu verstehen, wie Anwendungen in modernen Cloud-Umgebungen deployed, skaliert und gewartet werden.
+            <h2 class="section-title">Current Focus</h2>
+            <div class="card focus-card">
+                <h3>Preparing for IPA & Practical Skills</h3>
+                <p>
+                    I am currently focusing on preparing for my IPA (Individual Practical Assignment) as part of my Software Developer apprenticeship in Switzerland, aiming to successfully obtain my EFZ qualification. 
                 </p>
-                <p style="margin-bottom: 1rem;">
-                    Themen die mich gerade beschäftigen:
+                <p style="margin-top:1rem;">
+                    At the moment, I am working extensively with <strong>TypeScript</strong> and <strong>Java</strong>, building practical experience in real-world applications and improving my development skills.
                 </p>
-                <ul style="list-style: none; margin-top: 1rem;">
-                    <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                        → CI/CD Pipelines mit OpenShift
-                    </li>
-                    <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                        → Kubernetes Networking & Service Mesh
-                    </li>
-                    <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                        → Infrastructure as Code (IaC)
-                    </li>
-                    <li style="padding: 0.5rem 0; color: var(--text-muted);">
-                        → Monitoring & Observability
-                    </li>
-                </ul>
             </div>
-        </section>
+        </section>        
     </div>
 
     <script src="particles.js"></script>
