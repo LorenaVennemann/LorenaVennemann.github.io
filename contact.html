@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Lorena Jil Vennemann</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contact-intro p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-link-text {
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-5px) rotate(5deg);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LJV</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <h1 class="page-title">Let's Connect</h1>
+            <p class="page-subtitle">Interesse an einer Zusammenarbeit oder einfach nur ein Tech-Talk? Ich freue mich auf deine Nachricht!</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-intro">
+                <div class="availability-badge">
+                    <span class="status-dot"></span>
+                    Offen für neue Möglichkeiten
+                </div>
+                <p>
+                    Ob du Fragen zu meinen Projekten hast, über OpenShift und Cloud-Technologien sprechen möchtest, oder an einer Zusammenarbeit interessiert bist – ich bin immer für spannende Gespräche zu haben.
+                </p>
+            </div>
+
+            <div class="contact-methods">
+                <a href="mailto:your.email@example.com" class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>Für direkte Anfragen</p>
+                    <span class="contact-link-text">your.email@example.com</span>
+                </a>
+
+                <a href="https://github.com/yourusername" target="_blank" class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <p>Check out my code</p>
+                    <span class="contact-link-text">@yourusername</span>
+                </a>
+
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Let's connect professionally</p>
+                    <span class="contact-link-text">Lorena Jil Vennemann</span>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem;">Follow Me</h2>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank" class="social-link" title="GitHub">
+                        <span>🐙</span>
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-link" title="LinkedIn">
+                        <span>💼</span>
+                    </a>
+                    <a href="https://twitter.com/yourhandle" target="_blank" class="social-link" title="Twitter">
+                        <span>🐦</span>
+                    </a>
+                    <a href="mailto:your.email@example.com" class="social-link" title="Email">
+                        <span>✉️</span>
+                    </a>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <h3 style="margin-bottom: 1rem; color: var(--primary);">Response Time</h3>
+                <p style="color: var(--text-muted); line-height: 1.8;">
+                    Ich versuche in der Regel innerhalb von 24-48 Stunden zu antworten. Bei dringenden Anfragen kannst du mich auch direkt über LinkedIn erreichen.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="particles.js"></script>
+</body>
+</html>
