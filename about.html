@@ -42,7 +42,11 @@
         .page-subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; }
 
         /* Hero Tags */
-        .hero-tags { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+        .hero-tags .tag:hover {
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+    color: #0a0a0a;
+    transform: translateY(-3px) scale(1.05);
+}
         .tag { padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); transition: all 0.3s ease; cursor: default; }
         .tag:hover { background: rgba(0, 255, 136, 0.15); border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
 
@@ -66,7 +70,7 @@
     </style>
 </head>
 <body>
-    <canvas id="particles-canvas"></canvas>
+    <canvas id="particles-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></canvas>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -160,6 +164,6 @@
         </section>        
     </div>
 
-    <script src="particles.js"></script>
+    <script src="/js + jsx/particles.js"></script>
 </body>
 </html>
