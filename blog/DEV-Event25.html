@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swiss Dev Confederation 2025 | Lorena Jil Vennemann</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+    .blog-detail {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        transition: gap 0.3s;
+    }
+
+    .back-link:hover { gap: 1rem; }
+
+    .blog-detail-header { margin-bottom: 3rem; }
+
+    .blog-detail-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
+    .blog-detail-category {
+        padding: 0.5rem 1rem;
+        background: rgba(0, 255, 136, 0.1);
+        border: 1px solid rgba(0, 255, 136, 0.3);
+        border-radius: 20px;
+        color: var(--primary);
+        font-size: 0.85rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+
+    .blog-detail h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text); line-height: 1.2; }
+
+    .blog-content { color: var(--text-muted); line-height: 1.9; font-size: 1.1rem; }
+
+    .blog-content h2 {
+        color: var(--text);
+        font-size: 1.8rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .blog-content h3 {
+        color: var(--text);
+        font-size: 1.4rem;
+        margin-top: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .blog-content p { margin-bottom: 1.5rem; }
+
+    .blog-content ul, .blog-content ol { margin-bottom: 1.5rem; padding-left: 2rem; }
+
+    .blog-content li { margin-bottom: 0.8rem; }
+
+    .author-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+    .author-section h3 { color: var(--text); margin-bottom: 1rem; }
+
+    .related-posts { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+    .related-posts h3 { color: var(--text); margin-bottom: 1.5rem; font-size: 1.5rem; }
+
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+
+    .related-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s;
+    }
+
+    .related-card:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(0, 255, 136, 0.3);
+        transform: translateY(-3px);
+    }
+
+    .related-card h4 { color: var(--text); margin-bottom: 0.5rem; font-size: 1.1rem; }
+
+    .related-card p { color: var(--text-muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<canvas id="particles-canvas"></canvas>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">LJV</a>
+        <ul class="nav-menu">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-container">
+    <div class="blog-detail">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+        <div class="blog-detail-header">
+            <span class="blog-detail-category">Dev Event</span>
+            <h1>Swiss Dev Confederation 2025 – My Event Highlight</h1>
+            <div class="blog-detail-meta">
+                <span>📅 23 September 2025</span>
+                <span>⏱️ 3 min read</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <p>
+                My first major developer event! Swiss Dev Confederation 2025 was packed with exciting talks on 
+                cloud-native development, AI, and OpenShift. I was particularly impressed by the sessions on OpenShift and AI topics – 
+                a day full of inspiration and new technologies!
+            </p>
+
+            <h2>Highlights of the talks</h2>
+            <ul>
+                <li><strong>Burr Sutter:</strong> "Paving the Golden Path" – Insights into platform engineering and developer experience.</li>
+                <li><strong>Kevin Dubois:</strong> Tips & tricks for Kubernetes native Java applications – from zero to production readiness</li>
+                <li><strong>Simon Krenger & Team:</strong> OpenShift Roadmap & Community Insights</li>
+            </ul>
+
+            <h2>My impressions</h2>
+            <p>
+                The talks showed me how closely cloud-native development, AI, and container orchestration are linked. 
+                All the speakers I highlighted delivered their sessions exceptionally well, and Burr Sutter was a particularly inspiring presenter.
+            </p>
+
+            <h2>Why such events are important</h2>
+            <p>
+                As an aspiring developer, attending events like this helps me learn a lot and meet many other people in the field. 
+                It’s a great way to build connections, exchange ideas, and see current technologies in action.
+            </p>    
+
+            <h2>Conclusion</h2>
+            <p>
+                Swiss Dev Confederation 2025 was a huge success for me: exciting talks  and valuable insights into cloud-native development, AI, and OpenShift.
+                I'm already looking forward to the next developer event!
+            </p>
+        </div>
+
+        <div class="author-section">
+            <h3>Author</h3>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+                Lorena Jil Vennemann<br>
+                Thank you for reading!
+            </p>
+        </div>
+
+        <div class="related-posts">
+            <h3>Further articles</h3>
+            <div class="related-grid">
+                <a href="blog-post-openshift.html" class="related-card">
+                    <h4>OpenShift</h4>
+                    <p>How it started</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="particles.js"></script>
+</body>
+</html>
