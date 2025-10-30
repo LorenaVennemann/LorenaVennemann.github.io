@@ -41,12 +41,28 @@
         .page-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1rem; }
         .page-subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; }
 
+        .profile-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 25% center;
+  border: 2px solid rgba(0, 255, 136, 0.6);
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.4);
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.4s ease;
+}
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+
         /* Hero Tags */
         .hero-tags .tag:hover {
-    background: linear-gradient(90deg, #00ff88, #00ccff);
-    color: #0a0a0a;
-    transform: translateY(-3px) scale(1.05);
-}
+            background: linear-gradient(90deg, #00ff88, #00ccff);
+            color: #0a0a0a;
+            transform: translateY(-3px) scale(1.05);
+        }
         .tag { padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); transition: all 0.3s ease; cursor: default; }
         .tag:hover { background: rgba(0, 255, 136, 0.15); border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
 
@@ -66,7 +82,11 @@
         .focus-card { max-width: 800px; margin: 0 auto; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); }
 
         /* Responsive */
-        @media (max-width: 768px) { .nav-menu { gap: 1rem; font-size: 0.9rem; } .page-container { padding: 6rem 1.5rem 3rem; } .skills-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .nav-menu { gap: 1rem; font-size: 0.9rem; }
+            .page-container { padding: 6rem 1.5rem 3rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -87,6 +107,8 @@
 
     <div class="page-container">
         <div class="page-header">
+            <div class="profile-image-wrapper">
+            <img src="assets/Images/myself.jpg" alt="Lorena Jil Vennemann" class="profile-image">
             <h1 class="page-title">About Me</h1>
             <p class="page-subtitle">Software Developer Apprentice focusing on Backend & Cloud-Native technologies</p>
             <div class="hero-tags">
@@ -96,6 +118,7 @@
                 <span class="tag">Git</span>
             </div>
         </div>
+
         <section>
             <div class="card">
                 <p>
