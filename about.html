@@ -7,10 +7,10 @@
     <link rel="icon" type="image/png" href="assets/Images/ljv.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Root Variables */
         :root {
             --primary: #00ff88;
             --secondary: #00ccff;
+            --accent: #4a90e2;
             --dark: #0a0a0a;
             --dark-light: #1a1a1a;
             --text: #ffffff;
@@ -18,12 +18,10 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Global */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
 
-        /* Navbar */
         .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; padding: 1rem 0; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--text); letter-spacing: 0.05em; transition: var(--transition); }
@@ -34,59 +32,68 @@
         .nav-menu a:hover, .nav-menu a.active { color: var(--text); }
         .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
 
-        /* Page Container */
         .page-container { max-width: 1200px; margin: 0 auto; padding: 8rem 2rem 4rem; }
 
-        /* Header */
-        .page-header { text-align: center; margin-bottom: 4rem; }
-        .page-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1rem; }
-        .page-subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; }
+        .page-header { text-align: center; margin-bottom: 4rem; position: relative; }
+        .page-title { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; }
+        .page-subtitle { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
         .profile-image {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: 25% center;
-  border: 2px solid rgba(0, 255, 136, 0.6);
-  box-shadow: 0 0 40px rgba(0, 255, 136, 0.4);
-  image-rendering: -webkit-optimize-contrast;
-  transition: transform 0.4s ease;
-}
-.profile-image:hover {
-  transform: scale(1.05);
-}
-
-
-        /* Hero Tags */
-        .hero-tags .tag:hover {
-            background: linear-gradient(90deg, #00ff88, #00ccff);
-            color: #0a0a0a;
-            transform: translateY(-3px) scale(1.05);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 25% center;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
         }
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);
+        }
+
+        .hero-tags { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
         .tag { padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); transition: all 0.3s ease; cursor: default; }
-        .tag:hover { background: rgba(0, 255, 136, 0.15); border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .tag:hover { background: rgba(0, 255, 136, 0.1); color: var(--primary); border-color: rgba(0, 255, 136, 0.3); transform: translateY(-2px); }
 
-        /* Card */
-        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; transition: all 0.3s ease; }
-        .card:hover { background: rgba(0, 255, 136, 0.05); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2); }
+        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; transition: all 0.3s ease; }
+        .card:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border-color: rgba(255, 255, 255, 0.12); }
+        .card h3 { margin-bottom: 1rem; color: var(--primary); font-size: 1.3rem; }
+        .card p { color: var(--text-muted); line-height: 1.8; }
 
-        /* Skills Section */
-        .skills-section { margin-bottom: 4rem; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+
+        .interests-card { background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 204, 255, 0.05) 100%); border: 1px solid rgba(0, 255, 136, 0.2); }
+        .interests-list { list-style: none; margin-top: 1rem; }
+        .interests-list li { padding: 0.7rem 0; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; gap: 0.8rem; }
+        .interests-list li:last-child { border-bottom: none; }
+        .interest-icon { font-size: 1.3rem; }
+
+        .section-title { font-size: 2rem; margin-bottom: 2rem; font-weight: 600; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 2px; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
         .skills-grid ul { list-style: none; margin-top: 1rem; padding: 0; }
-        .skills-grid li { color: var(--text-muted); padding: 0.5rem 0; }
-        .skills-grid strong { color: var(--primary); }
+        .skills-grid li { color: var(--text-muted); padding: 0.6rem 0; transition: color 0.2s ease; }
+        .skills-grid li:hover { color: var(--text); }
+        .skills-grid strong { color: var(--primary); font-weight: 600; }
 
-        /* Focus Card */
-        .focus-card { max-width: 800px; margin: 0 auto; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); }
+        .focus-card { max-width: 900px; margin: 0 auto; background: rgba(0, 255, 136, 0.03); border: 1px solid rgba(0, 255, 136, 0.15); }
 
-        /* Responsive */
+        .timeline { position: relative; padding: 2rem 0; }
+        .timeline-item { position: relative; padding-left: 3rem; margin-bottom: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 0; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.2); }
+        .timeline-item::after { content: ''; position: absolute; left: 5px; top: 12px; width: 2px; height: calc(100% + 2rem); background: rgba(0, 255, 136, 0.2); }
+        .timeline-item:last-child::after { display: none; }
+        .timeline-year { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+        .timeline-content { color: var(--text-muted); }
+
         @media (max-width: 768px) {
             .nav-menu { gap: 1rem; font-size: 0.9rem; }
             .page-container { padding: 6rem 1.5rem 3rem; }
-            .skills-grid { grid-template-columns: 1fr; }
+            .skills-grid, .two-column { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -108,67 +115,94 @@
 
     <div class="page-container">
         <div class="page-header">
-            <div class="profile-image-wrapper">
             <img src="assets/Images/myself.jpg" alt="Lorena Jil Vennemann" class="profile-image">
-            <h1 class="page-title">About Me</h1>
-            <p class="page-subtitle">Software Developer Apprentice focusing on Backend & Cloud-Native technologies</p>
+            <h1 class="page-title">Lorena Jil Vennemann</h1>
+            <p class="page-subtitle">Software Developer Apprentice specializing in Backend Development & Cloud-Native Technologies</p>
             <div class="hero-tags">
-                <span class="tag">Backend</span>
-                <span class="tag">Frontend</span>
+                <span class="tag">Java & Spring Boot</span>
+                <span class="tag">React & TypeScript</span>
                 <span class="tag">Cloud Native</span>
-                <span class="tag">Git</span>
+                <span class="tag">DevOps</span>
             </div>
         </div>
 
         <section>
             <div class="card">
+                <h3>Professional Background</h3>
                 <p>
-                    Hi! I'm Lorena, currently in my 4th year as a Software Developer Apprentice @ SIX. I am passionate about building robust backend systems and modern cloud applications. During my apprenticeship, I have been working extensively with <strong>Java</strong> and <strong>React</strong>.
+                    I am currently in my 4th year as a Software Developer Apprentice at SIX, where I focus on building robust backend systems and modern cloud-native applications. My technical expertise centers around <strong>Java</strong> and <strong>React</strong>, with a strong emphasis on scalable architecture and performance optimization.
                 </p>
                 <p style="margin-top:1rem;">
-                    In my 4rd year of training, I had the opportunity to work for one month abroad at an external company, <strong>Archr</strong> in Stockholm. This experience gave me valuable international exposure and insights into professional software development practices.
-                </p>
-                <p style="margin-top:1rem;">
-                    I especially enjoy performance optimization, API development, and discovering new technologies to improve my skills. My goal is to create applications that are scalable, reliable, and future-proof.
+                    During my apprenticeship, I gained valuable international experience working at <strong>Archr</strong> in Stockholm for one month. This opportunity provided me with insights into professional software development practices in an international setting and enhanced my ability to collaborate across diverse teams.
                 </p>
             </div>
         </section>
-        
-        <section>
-            <h2 class="section-title">Hobbies & Free Time</h2>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 class="section-title">Professional Journey</h2>
             <div class="card">
-                <p>
-                    In my free time, I practice martial arts and go to the gym. I enjoy challenging myself physically as much as mentally, and these activities help me stay focused, disciplined, and motivated.
-                </p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025 – Present</div>
+                        <div class="timeline-content">4th Year Software Developer Apprentice at SIX – Focus on advanced backend development and final project (IPA) preparation</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">Worked at a startup in Stockholm – Gained hands-on experience in a fast-paced international tech environment</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022 – Present</div>
+                        <div class="timeline-content">Software Developer Apprenticeship at SIX – Started the apprenticeship and built a strong foundation in software development</div>
+                    </div>
+                </div>
             </div>
         </section>        
 
+        <div class="two-column">
+            <div class="card">
+                <h3>Development Philosophy</h3>
+                <p>
+                    I am passionate about creating applications that are scalable, reliable, and maintainable. My approach emphasizes clean code, thorough testing, and continuous learning. I particularly enjoy API development, performance optimization, and exploring emerging technologies that can enhance software quality.
+                </p>
+            </div>
+            <div class="card interests-card">
+                <h3>Personal Interests</h3>
+                <ul class="interests-list">
+                    <li><span class="interest-icon">🏍️</span> Motorcycle riding and maintenance</li>
+                    <li><span class="interest-icon">🥋</span> Martial arts and fitness training</li>
+                    <li><span class="interest-icon">🎵</span> Music appreciation</li>
+                </ul>
+                <p style="margin-top:1rem; font-size: 0.9rem;">
+                    Outside of software development, I maintain an active lifestyle through martial arts and regular gym training, which helps me stay focused and disciplined in both personal and professional pursuits.
+                </p>
+            </div>
+        </div>
+
         <section class="skills-section">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="card skill-card">
                     <h3>Backend Development</h3>
                     <ul>
-                        <li><strong>Java</strong> – Spring Boot, REST APIs, Microservices</li>
-                        <li><strong>SQL</strong> – HeidiSQL, MySQL</li>
-                        <li><strong>C++</strong> – Basics & performance-critical applications</li>
+                        <li><strong>Java</strong> – Spring Boot, REST APIs, Microservices Architecture</li>
+                        <li><strong>SQL</strong> – Database Design, HeidiSQL, MySQL</li>
+                        <li><strong>C++</strong> – Fundamentals & Performance Optimization</li>
                     </ul>
                 </div>
                 <div class="card skill-card">
                     <h3>Frontend Development</h3>
                     <ul>
                         <li><strong>React</strong> – Hooks, Context API, State Management</li>
-                        <li><strong>TypeScript / JavaScript</strong> – Modern JS (ES6+), Async/Await</li>
-                        <li><strong>HTML/CSS</strong> – Responsive Design, Flexbox, Grid</li>
+                        <li><strong>TypeScript / JavaScript</strong> – ES6+, Async Patterns</li>
+                        <li><strong>HTML/CSS</strong> – Responsive Design, Modern Layouts</li>
                     </ul>
                 </div>
                 <div class="card skill-card">
                     <h3>Cloud & DevOps</h3>
                     <ul>
-                        <li><strong>OpenShift</strong> – Container Platform, Deployments</li>
-                        <li><strong>Kubernetes</strong> – Orchestration, Pods, Services</li>
-                        <li><strong>Docker</strong> – Containerization, Compose</li>
-                        <li><strong>Podman</strong> – Containerization, Compose</li>
+                        <li><strong>OpenShift</strong> – Container Platform & Deployments</li>
+                        <li><strong>Kubernetes</strong> – Orchestration & Service Management</li>
+                        <li><strong>Docker & Podman</strong> – Containerization</li>
                     </ul>
                 </div>
             </div>
@@ -177,15 +211,15 @@
         <section>
             <h2 class="section-title">Current Focus</h2>
             <div class="card focus-card">
-                <h3>Preparing for IPA & Practical Skills</h3>
+                <h3>IPA Preparation & Professional Development</h3>
                 <p>
-                    I am currently focusing on preparing for my IPA (Individual Practical Assignment) as part of my Software Developer apprenticeship in Switzerland, aiming to successfully obtain my EFZ qualification. 
+                    I am currently preparing for my IPA (Individual Practical Assignment) as part of the Swiss Software Developer EFZ qualification. This intensive phase involves working extensively with <strong>TypeScript</strong> and <strong>Java</strong> on real-world applications, further developing my expertise in enterprise-grade software development.
                 </p>
                 <p style="margin-top:1rem;">
-                    At the moment, I am working extensively with <strong>TypeScript</strong> and <strong>Java</strong>, building practical experience in real-world applications and improving my development skills.
+                    My goal is to continue advancing my skills in backend architecture, cloud-native technologies, and DevOps practices, positioning myself as a well-rounded software engineer capable of delivering high-quality, production-ready solutions.
                 </p>
             </div>
-        </section>        
+        </section>
     </div>
 
     <script src="/js + jsx/particles.js"></script>
