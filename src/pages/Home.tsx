@@ -1,14 +1,26 @@
 import { Link } from 'react-router-dom';
+import TypewriterText from '../components/TypewriterText';
 import './Home.css';
 
 const Home = () => {
   return (
     <main className="hero-section">
       <div className="hero-content">
-        <h1 className="hero-title">Lorena Jil Vennemann</h1>
+        <h1 className="hero-title">
+          <TypewriterText 
+            text="Lorena Jil Vennemann" 
+            speed={120} 
+            delay={500}
+            className="hero-typewriter"
+          />
+        </h1>
 
         <p className="hero-subtitle">
-          4th-year Software Developer Apprentice @ SIX
+          <TypewriterText 
+            text="4th-year Software Developer Apprentice @ SIX" 
+            speed={80} 
+            delay={2500}
+          />
         </p>
 
         <div className="hero-tags">

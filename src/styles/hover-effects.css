@@ -1,0 +1,298 @@
+/* Global Hover Animations & Effects */
+
+/* Card Hover Effects */
+.card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 212, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+/* Project Card Enhanced Hover */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 212, 255, 0.1) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(0, 212, 255, 0.15);
+}
+
+/* Button Hover Effects */
+.btn, .project-link, .contact-link, .cta-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.btn::before, .project-link::before, .contact-link::before, .cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn:hover::before, .project-link:hover::before, .contact-link:hover::before, .cta-btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover, .project-link:hover, .contact-link:hover, .cta-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 212, 255, 0.4);
+  border-color: rgba(0, 212, 255, 0.8);
+}
+
+/* Tag Hover Effects */
+.tag, .tech-tag, .project-status {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tag:hover, .tech-tag:hover {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.1));
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Navigation Link Hover */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Social Link Hover */
+.social-link img {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: grayscale(20%);
+}
+
+.social-link:hover img {
+  transform: scale(1.1) rotateY(10deg);
+  filter: grayscale(0%) drop-shadow(0 0 15px rgba(0, 212, 255, 0.5));
+}
+
+/* Timeline Item Hover */
+.timeline-item {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-item:hover::before {
+  opacity: 1;
+}
+
+.timeline-item:hover {
+  transform: translateX(10px);
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+/* Profile Image Hover */
+.profile-image {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.profile-image:hover {
+  transform: scale(1.05) rotateZ(2deg);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(0, 212, 255, 0.3);
+  filter: brightness(1.1);
+}
+
+/* Loading/Skeleton Shimmer Effect */
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmerEffect 1.5s infinite;
+}
+
+/* Pulse Animation for Important Elements */
+.pulse {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+  }
+}
+
+/* Floating Animation */
+.float {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Hover Effects */
+@media (max-width: 768px) {
+  /* Reduce hover effects on mobile for better performance */
+  .card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .btn:hover, .project-link:hover, .contact-link:hover, .cta-btn:hover {
+    transform: translateY(-1px) scale(1.02);
+  }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover,
+  .project-card:hover,
+  .btn:hover,
+  .project-link:hover,
+  .contact-link:hover,
+  .cta-btn:hover,
+  .tag:hover,
+  .tech-tag:hover,
+  .nav-link:hover,
+  .social-link:hover,
+  .timeline-item:hover,
+  .profile-image:hover {
+    transform: none;
+    box-shadow: initial;
+  }
+  
+  .card::before,
+  .project-card::after,
+  .btn::before,
+  .project-link::before,
+  .contact-link::before,
+  .cta-btn::before,
+  .nav-link::after,
+  .timeline-item::before {
+    display: none;
+  }
+}

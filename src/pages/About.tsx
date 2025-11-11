@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import SkillProgressBar from '../components/SkillProgressBar';
 import './About.css';
 
 const About = () => {
@@ -90,27 +91,21 @@ const About = () => {
         <div className="skills-grid">
           <div className="card skill-card">
             <h3>Backend Development</h3>
-            <ul>
-              <li><strong>Java</strong> – Spring Boot, REST APIs, Microservices Architecture</li>
-              <li><strong>SQL</strong> – Database Design, HeidiSQL, MySQL</li>
-              <li><strong>C++</strong> – Fundamentals & Performance Optimization</li>
-            </ul>
+            <SkillProgressBar skill="Java & Spring Boot" percentage={85} color="#f89820" />
+            <SkillProgressBar skill="SQL & Database Design" percentage={80} color="#336791" />
+            <SkillProgressBar skill="C++ Programming" percentage={70} color="#00599c" />
           </div>
           <div className="card skill-card">
             <h3>Frontend Development</h3>
-            <ul>
-              <li><strong>React</strong> – Hooks, Context API, State Management</li>
-              <li><strong>TypeScript / JavaScript</strong> – ES6+, Async Patterns</li>
-              <li><strong>HTML/CSS</strong> – Responsive Design, Modern Layouts</li>
-            </ul>
+            <SkillProgressBar skill="React & TypeScript" percentage={82} color="#61dafb" />
+            <SkillProgressBar skill="JavaScript ES6+" percentage={85} color="#f7df1e" />
+            <SkillProgressBar skill="HTML/CSS & Responsive Design" percentage={88} color="#e34f26" />
           </div>
           <div className="card skill-card">
             <h3>Cloud & DevOps</h3>
-            <ul>
-              <li><strong>OpenShift</strong> – Container Platform & Deployments</li>
-              <li><strong>Kubernetes</strong> – Orchestration & Service Management</li>
-              <li><strong>Docker & Podman</strong> – Containerization</li>
-            </ul>
+            <SkillProgressBar skill="OpenShift & Kubernetes" percentage={75} color="#326ce5" />
+            <SkillProgressBar skill="Docker & Containerization" percentage={78} color="#2496ed" />
+            <SkillProgressBar skill="CI/CD & Automation" percentage={72} color="#00d4ff" />
           </div>
         </div>
       </section>

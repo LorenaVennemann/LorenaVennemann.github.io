@@ -1,3 +1,5 @@
+@import './styles/hover-effects.css';
+
 .app {
   min-height: 100vh;
   display: flex;

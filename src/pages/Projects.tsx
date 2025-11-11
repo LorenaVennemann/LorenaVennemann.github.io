@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import ImageSlider from '../components/ImageSlider';
+import ImageGallery from '../components/ImageGallery';
 import './Projects.css';
 
 const Projects = () => {
@@ -32,6 +34,15 @@ const Projects = () => {
               </div>
             </div>
           </div>
+          
+          <ImageSlider 
+            images={[
+              '/assets/Images/projects/security-1.svg',
+              '/assets/Images/projects/security-2.svg'
+            ]}
+            alt="Security Vulnerabilities App"
+          />
+          
           <p className="project-description">
             School project in Module 183 (Application Security): A deliberately insecure to-do list application in which we had to identify and fix various security vulnerabilities as a team. The project helped me understand and close common security vulnerabilities such as SQL injection, XSS, insecure authentication, and faulty authorization.
           </p>
@@ -178,6 +189,25 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {/* Project Screenshots Gallery */}
+      <section style={{ marginTop: '4rem' }}>
+        <h2 className="section-title">Project Screenshots</h2>
+        <ImageGallery 
+          images={[
+            {
+              src: '/assets/Images/projects/security-1.svg',
+              alt: 'Security Project - Login Screen',
+              caption: 'Secure authentication system with vulnerability fixes'
+            },
+            {
+              src: '/assets/Images/projects/security-2.svg',
+              alt: 'Security Project - Dashboard',
+              caption: 'Todo list application with security improvements'
+            }
+          ]}
+        />
+      </section>
     </div>
   );
 };

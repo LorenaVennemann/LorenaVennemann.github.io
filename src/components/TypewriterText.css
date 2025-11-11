@@ -1,0 +1,90 @@
+/* Typewriter Text Animation Styles */
+.typewriter-text {
+  display: inline-block;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: var(--primary, #00d4ff);
+  margin-left: 2px;
+  width: 3px;
+  animation: cursorBlink 1.2s infinite;
+  color: transparent;
+  font-weight: normal;
+}
+
+.cursor.typing {
+  animation: cursorSolid 0.1s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cursorSolid {
+  0%, 100% {
+    opacity: 1;
+  }
+}
+
+/* Typewriter container styles */
+.typewriter-container {
+  min-height: 1.2em;
+  display: flex;
+  align-items: center;
+}
+
+/* Special styling for hero text */
+.hero-typewriter {
+  background: linear-gradient(
+    135deg,
+    var(--primary, #00d4ff) 0%,
+    #ffffff 50%,
+    var(--primary, #00d4ff) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 3s ease-in-out infinite;
+}
+
+@keyframes shimmerText {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive cursor size */
+@media (max-width: 768px) {
+  .cursor {
+    width: 2px;
+    margin-left: 1px;
+  }
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .hero-typewriter {
+    animation: none;
+    background: var(--primary, #00d4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
