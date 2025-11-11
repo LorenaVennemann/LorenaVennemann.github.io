@@ -3,26 +3,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem 4rem;
+  padding: 8rem 2rem 4rem;
   position: relative;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .terminal-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
   font-family: 'Courier New', monospace;
-  color: var(--primary);
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  display: inline-block;
+  font-size: 0.95rem;
+  margin-bottom: 3rem;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 12px;
 }
 
 .prompt {
   color: var(--secondary);
-  margin-right: 0.5rem;
+  font-weight: 600;
 }
 
 .command {
@@ -30,8 +37,12 @@
 }
 
 .cursor {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  background: var(--primary);
   animation: blink 1s infinite;
-  color: var(--primary);
+  margin-left: 2px;
 }
 
 @keyframes blink {
@@ -40,64 +51,67 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
   background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fadeInUp 1s ease;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   color: var(--text-muted);
-  margin-bottom: 2rem;
-  animation: fadeInUp 1s ease 0.2s backwards;
+  margin-bottom: 3rem;
+  font-weight: 400;
 }
 
 .hero-tags {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
-  animation: fadeInUp 1s ease 0.4s backwards;
+  margin-bottom: 3.5rem;
 }
 
 .tag {
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.4rem;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
   font-size: 0.9rem;
   color: var(--text-muted);
-  transition: var(--transition);
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .tag:hover {
-  background: rgba(0, 255, 136, 0.1);
+  background: rgba(0, 255, 136, 0.08);
   border-color: var(--primary);
   color: var(--primary);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .hero-cta {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   justify-content: center;
-  animation: fadeInUp 1s ease 0.6s backwards;
+  flex-wrap: wrap;
 }
 
 .btn {
-  padding: 1rem 2.5rem;
+  padding: 1rem 2.2rem;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 1rem;
-  font-weight: 500;
-  transition: var(--transition);
-  display: inline-block;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-primary {
@@ -114,24 +128,34 @@
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--border);
 }
 
 .btn-secondary:hover {
   border-color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 7rem 1.5rem 3rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .terminal-line {
+    font-size: 0.85rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    justify-content: center;
   }
 }
+

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Blog.css';
 
 const Blog = () => {
@@ -22,7 +23,7 @@ const Blog = () => {
             cloud-native development, AI, and OpenShift. I was particularly impressed by the sessions on OpenShift and AI topics 
             – a day full of inspiration and new technologies!
           </p>
-          <a href="/blog/DEV-Event25.html" className="read-more">Read More →</a>
+          <Link to="/blog/dev-event" className="read-more">Read More →</Link>
         </article>
 
         <article className="blog-post">
@@ -36,7 +37,7 @@ const Blog = () => {
             From the basics to my first successful deployment—a personal retrospective 
             of my learnings and challenges.
           </p>
-          <a href="/blog/blog-post-openshift.html" className="read-more">Read More →</a>
+          <Link to="/blog/openshift" className="read-more">Read More →</Link>
         </article>
 
         {/* Coming Soon */}
