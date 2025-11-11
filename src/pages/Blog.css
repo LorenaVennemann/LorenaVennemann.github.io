@@ -85,3 +85,22 @@
   font-weight: 600;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 768px) {
+  .blog-grid {
+    gap: 1.5rem;
+  }
+
+  .blog-post {
+    padding: 1.5rem;
+  }
+
+  .blog-post h2 {
+    font-size: 1.4rem;
+  }
+
+  .blog-meta {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+}

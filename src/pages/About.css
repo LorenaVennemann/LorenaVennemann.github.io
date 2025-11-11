@@ -20,7 +20,7 @@
 }
 
 .page-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
@@ -242,11 +242,43 @@
 
 @media (max-width: 768px) {
   .page-container {
-    padding: 6rem 1.5rem 3rem;
+    padding: 8rem 1rem 3rem;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
   }
   
   .skills-grid,
-  .two-column {
+  .two-column,
+  .content-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+  }
+
+  .tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
   }
 }
