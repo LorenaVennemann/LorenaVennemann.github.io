@@ -17,7 +17,7 @@ const About = () => {
   return (
     <div className="page-container">
       <div className="page-header">
-        <img src="./assets/Images/myself.jpg" alt="Lorena Jil Vennemann" className="profile-image" />
+        <img src="/assets/Images/myself.jpg" alt="Lorena Jil Vennemann" className="profile-image" />
         <h1 className="page-title">Lorena Jil Vennemann</h1>
         <p className="page-subtitle">
           Software Developer Apprentice specializing in Backend Development & Cloud-Native Technologies
