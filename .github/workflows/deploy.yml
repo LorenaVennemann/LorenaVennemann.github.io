@@ -44,10 +44,11 @@ jobs:
       - name: Build
         run: npm run build
         
-      - name: Copy assets to root for GitHub Pages
+      - name: Copy built assets to root for GitHub Pages
         run: |
           cp dist/index.html index.html
-          cp -r dist/assets assets
+          rm -rf assets/index-*.js assets/index-*.css
+          cp -r dist/assets/* assets/
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
