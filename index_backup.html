@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorena Jil Vennemann</title>
+    <link rel="icon" type="image/png" href="assets/Images/ljv.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LJV</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog/blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <div class="terminal-line">
+                <span class="prompt">$</span>
+                <span class="command" id="typed-text"></span>
+                <span class="cursor">_</span>
+            </div>
+            
+            <h1 class="hero-title">
+                Lorena Jil Vennemann
+            </h1>
+            
+            <p class="hero-subtitle">
+                4th-year Software Developer Apprentice @ SIX
+            </p>
+            
+            <div class="hero-tags">
+                <span class="tag">Backend</span>
+                <span class="tag">Frontend</span>
+                <span class="tag">Cloud Native</span>
+                <span class="tag">Git</span>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="projects.html" class="btn btn-primary">View Projects</a>
+                <a href="contact.html" class="btn btn-secondary">Get in Touch ✨</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </main>
+
+    <script src="js/particles.js"></script>
+    <script>
+        const text = 'Welcome to my creative space';
+        const typedElement = document.getElementById('typed-text');
+        let charIndex = 0;
+        
+        function typeWriter() {
+            if (charIndex < text.length) {
+                typedElement.textContent += text.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 150);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    </script>
+</body>
+</html>

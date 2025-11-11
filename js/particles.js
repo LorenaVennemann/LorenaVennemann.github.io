@@ -113,7 +113,10 @@ class ParticleSystem {
         }
     }
 }
-export { ParticleSystem, Particle };
+
+// Remove export since this is loaded as a regular script
+// export { ParticleSystem, Particle };
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         const canvas = document.getElementById('particles-canvas');
