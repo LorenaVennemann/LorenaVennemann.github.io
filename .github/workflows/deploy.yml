@@ -44,14 +44,19 @@ jobs:
       - name: Build
         run: npm run build
         
+      - name: Copy assets to root for GitHub Pages
+        run: |
+          cp dist/index.html index.html
+          cp -r dist/assets assets
+        
       - name: Setup Pages
         uses: actions/configure-pages@v5
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist directory (Vite build output)
-          path: './dist'
+          # Upload entire repository root (includes index.html and assets)
+          path: '.'
           
       - name: Deploy to GitHub Pages
         id: deployment
