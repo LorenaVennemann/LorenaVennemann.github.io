@@ -1,0 +1,29 @@
+# Optional: Workflow to clean old deployments
+name: Clean old deployments
+on:
+  workflow_dispatch:  # Manual trigger
+  
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old deployments
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: deployments } = await github.rest.repos.listDeployments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 100
+            });
+            
+            // Keep only the latest 5 deployments
+            const deploymentsToDelete = deployments.slice(5);
+            
+            for (const deployment of deploymentsToDelete) {
+              await github.rest.repos.deleteDeployment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                deployment_id: deployment.id
+              });
+            }
