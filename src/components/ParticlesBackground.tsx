@@ -24,17 +24,16 @@ const ParticlesBackground = () => {
     canvas.height = window.innerHeight;
 
     const particles: Particle[] = [];
-    const particleCount = 80;
+    const particleCount = 30;
 
-    // Initialize particles
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: Math.random() * 0.5 - 0.25,
-        speedY: Math.random() * 0.5 - 0.25,
-        opacity: Math.random() * 0.5 + 0.2
+        size: Math.random() * 1.5 + 0.5,
+        speedX: Math.random() * 0.2 - 0.1,
+        speedY: Math.random() * 0.2 - 0.1,
+        opacity: Math.random() * 0.3 + 0.15
       });
     }
 

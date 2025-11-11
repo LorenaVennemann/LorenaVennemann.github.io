@@ -2,4 +2,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  animation: appFadeIn 0.6s ease-in;
+}
+
+@keyframes appFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

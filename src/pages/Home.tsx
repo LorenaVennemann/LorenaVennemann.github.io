@@ -1,34 +1,10 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
-  const [typedText, setTypedText] = useState('');
-  const fullText = 'Welcome to my Portfolio';
-
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setTypedText(fullText.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 150);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <main className="hero-section">
       <div className="hero-content">
-        <div className="terminal-line">
-          <span className="prompt">$</span>
-          <span className="command">{typedText}</span>
-          <span className="cursor">_</span>
-        </div>
-
         <h1 className="hero-title">Lorena Jil Vennemann</h1>
 
         <p className="hero-subtitle">

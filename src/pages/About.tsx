@@ -1,6 +1,19 @@
+import { useEffect } from 'react';
 import './About.css';
 
 const About = () => {
+  useEffect(() => {
+    // Force animations to restart on mount/reload
+    const elements = document.querySelectorAll('.card, .section-title, .two-column > *, .skills-grid > *');
+    elements.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      htmlEl.style.animation = 'none';
+      // Force reflow
+      void htmlEl.offsetHeight;
+      htmlEl.style.animation = '';
+    });
+  }, []);
+
   return (
     <div className="page-container">
       <div className="page-header">

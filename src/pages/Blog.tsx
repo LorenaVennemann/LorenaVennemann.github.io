@@ -1,7 +1,19 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
 
 const Blog = () => {
+  useEffect(() => {
+    // Force animations to restart on mount/reload
+    const elements = document.querySelectorAll('.blog-card, .section-title');
+    elements.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      htmlEl.style.animation = 'none';
+      void htmlEl.offsetHeight;
+      htmlEl.style.animation = '';
+    });
+  }, []);
+
   return (
     <div className="page-container">
       <div className="page-header">

@@ -1,6 +1,18 @@
+import { useEffect } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  useEffect(() => {
+    // Force animations to restart on mount/reload
+    const elements = document.querySelectorAll('.contact-card, .availability-badge');
+    elements.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      htmlEl.style.animation = 'none';
+      void htmlEl.offsetHeight;
+      htmlEl.style.animation = '';
+    });
+  }, []);
+
   return (
     <div className="page-container">
       <div className="page-header">

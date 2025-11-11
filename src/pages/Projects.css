@@ -11,9 +11,29 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 2rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: projectFadeIn 0.8s ease-out forwards;
+  animation-fill-mode: both;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .project-card::before {
@@ -34,8 +54,9 @@
 .project-card:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(0, 255, 136, 0.3);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+              0 0 40px rgba(0, 255, 136, 0.15);
 }
 
 .project-header {
@@ -49,6 +70,28 @@
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
   color: var(--text);
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.project-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  transition: width 0.4s ease;
+}
+
+.project-card:hover h3 {
+  color: var(--primary);
+}
+
+.project-card:hover h3::after {
+  width: 100%;
 }
 
 .project-badges {

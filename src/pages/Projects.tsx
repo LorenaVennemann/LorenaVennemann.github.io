@@ -1,6 +1,18 @@
+import { useEffect } from 'react';
 import './Projects.css';
 
 const Projects = () => {
+  useEffect(() => {
+    // Force animations to restart on mount/reload
+    const elements = document.querySelectorAll('.project-card, .section-title');
+    elements.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      htmlEl.style.animation = 'none';
+      void htmlEl.offsetHeight;
+      htmlEl.style.animation = '';
+    });
+  }, []);
+
   return (
     <div className="page-container">
       <div className="page-header">
