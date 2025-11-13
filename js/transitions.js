@@ -77,6 +77,20 @@ class PageTransition {
                 animation: fadeOut 0.3s ease-out forwards;
             }
 
+            /* Diagonal slide-up used for dramatic About transition */
+            @keyframes pageSlideUpDiag {
+                to {
+                    transform: translateY(-120vh) translateX(20vw) rotate(-6deg) scale(0.98);
+                    opacity: 0;
+                    filter: blur(2px);
+                }
+            }
+
+            body.page-slide-up-diag > * {
+                animation: pageSlideUpDiag 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+                transform-origin: 50% 50%;
+            }
+
             @keyframes fadeOut {
                 to {
                     opacity: 0;
@@ -100,7 +114,9 @@ class PageTransition {
             }
             if (link.hostname === window.location.hostname || !link.hostname) {
                 e.preventDefault();
-                this.triggerTransition(href);
+                // Allow links to opt into the diagonal behavior via data-transition="diag"
+                const prefersDiag = (link.dataset && link.dataset.transition === 'diag');
+                this.triggerTransition(href, prefersDiag || /(^|\/)about(\.html|$)/i.test(href));
             }
         });
     }
@@ -117,7 +133,7 @@ class PageTransition {
                     top: 50%;
                     width: 100px;
                     height: 30px;
-                    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), rgba(0, 204, 255, 0.5));
+                    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.28), rgba(231, 76, 60, 0.12));
                     border-radius: 50%;
                     filter: blur(10px);
                     animation: rocketTrail 0.15s ease-in-out infinite;
@@ -132,9 +148,9 @@ class PageTransition {
                     transform: translate(-50%, -50%);
                     width: 60px;
                     height: 20px;
-                    background: linear-gradient(135deg, #00ff88, #00ccff);
+                    background: linear-gradient(135deg, #e74c3c, #e8dcc4);
                     border-radius: 0 10px 10px 0;
-                    box-shadow: 0 0 30px rgba(0, 255, 136, 0.8), 0 0 50px rgba(0, 204, 255, 0.5);
+                    box-shadow: 0 0 30px rgba(231, 76, 60, 0.8), 0 0 50px rgba(231, 76, 60, 0.35);
                 ">
                     <!-- Raketen-Spitze -->
                     <div style="
@@ -144,7 +160,7 @@ class PageTransition {
                         transform: translateY(-50%);
                         width: 0;
                         height: 0;
-                        border-left: 15px solid #00ccff;
+                        border-left: 15px solid #e8dcc4;
                         border-top: 10px solid transparent;
                         border-bottom: 10px solid transparent;
                         filter: drop-shadow(0 0 10px rgba(0, 204, 255, 0.8));
@@ -183,7 +199,7 @@ class PageTransition {
     /**
      * Startet die Transition-Animation
      */
-    triggerTransition(targetUrl) {
+    triggerTransition(targetUrl, useDiagonal = false) {
         if (this.isTransitioning || !this.container)
             return;
         this.isTransitioning = true;
@@ -200,7 +216,12 @@ class PageTransition {
         this.container.appendChild(rocket);
         // Fade-out der Seite
         setTimeout(() => {
-            document.body.classList.add('page-fade');
+            if (useDiagonal) {
+                document.body.classList.add('page-slide-up-diag');
+            }
+            else {
+                document.body.classList.add('page-fade');
+            }
         }, 100);
         // Navigation
         setTimeout(() => {

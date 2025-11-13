@@ -77,7 +77,7 @@
 .nav-menu a.active {
   color: var(--dark);
   background: var(--primary);
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+  box-shadow: 0 0 20px rgba(231, 76, 60, 0.35);
   transform: translateY(-1px);
 }
 

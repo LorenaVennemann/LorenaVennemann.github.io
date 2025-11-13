@@ -25,7 +25,7 @@ class Particle {
     }
 
     draw() {
-        this.ctx.fillStyle = `rgba(0, 255, 136, ${this.opacity})`;
+    this.ctx.fillStyle = `rgba(231, 76, 60, ${this.opacity})`;
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         this.ctx.fill();
@@ -82,8 +82,8 @@ class ParticleSystem {
                 const dy = this.particles[i].y - this.particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < maxDistance) {
-                    const opacity = 0.15 * (1 - distance / maxDistance);
-                    this.ctx.strokeStyle = `rgba(0, 204, 255, ${opacity})`;
+                    const opacity = 0.12 * (1 - distance / maxDistance);
+                    this.ctx.strokeStyle = `rgba(231, 76, 60, ${opacity})`;
                     this.ctx.lineWidth = 1;
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.particles[i].x, this.particles[i].y);

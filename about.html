@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         :root {
-            --primary: #00ff88;
+            --primary: #e74c3c;
             --secondary: #00ccff;
             --accent: #4a90e2;
             --dark: #0a0a0a;
@@ -44,19 +44,19 @@
             border-radius: 50%;
             object-fit: cover;
             object-position: 25% center;
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+            border: 2px solid rgba(231, 76, 60, 0.18);
+            box-shadow: 0 0 40px rgba(231, 76, 60, 0.12);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin-bottom: 2rem;
         }
         .profile-image:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 50px rgba(231, 76, 60, 0.3);
         }
 
         .hero-tags { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
         .tag { padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); transition: all 0.3s ease; cursor: default; }
-        .tag:hover { background: rgba(0, 255, 136, 0.1); color: var(--primary); border-color: rgba(0, 255, 136, 0.3); transform: translateY(-2px); }
+    .tag:hover { background: rgba(231, 76, 60, 0.08); color: var(--primary); border-color: rgba(231, 76, 60, 0.18); transform: translateY(-2px); }
 
         .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; transition: all 0.3s ease; }
         .card:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border-color: rgba(255, 255, 255, 0.12); }
@@ -65,7 +65,7 @@
 
         .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
 
-        .interests-card { background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 204, 255, 0.05) 100%); border: 1px solid rgba(0, 255, 136, 0.2); }
+    .interests-card { background: linear-gradient(135deg, rgba(231, 76, 60, 0.03) 0%, rgba(231, 76, 60, 0.02) 100%); border: 1px solid rgba(231, 76, 60, 0.08); }
         .interests-list { list-style: none; margin-top: 1rem; }
         .interests-list li { padding: 0.7rem 0; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; gap: 0.8rem; }
         .interests-list li:last-child { border-bottom: none; }
@@ -80,12 +80,12 @@
         .skills-grid li:hover { color: var(--text); }
         .skills-grid strong { color: var(--primary); font-weight: 600; }
 
-        .focus-card { max-width: 900px; margin: 0 auto; background: rgba(0, 255, 136, 0.03); border: 1px solid rgba(0, 255, 136, 0.15); }
+    .focus-card { max-width: 900px; margin: 0 auto; background: rgba(231, 76, 60, 0.02); border: 1px solid rgba(231, 76, 60, 0.08); }
 
         .timeline { position: relative; padding: 2rem 0; }
         .timeline-item { position: relative; padding-left: 3rem; margin-bottom: 2rem; }
-        .timeline-item::before { content: ''; position: absolute; left: 0; top: 0; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.2); }
-        .timeline-item::after { content: ''; position: absolute; left: 5px; top: 12px; width: 2px; height: calc(100% + 2rem); background: rgba(0, 255, 136, 0.2); }
+    .timeline-item::before { content: ''; position: absolute; left: 0; top: 0; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.12); }
+    .timeline-item::after { content: ''; position: absolute; left: 5px; top: 12px; width: 2px; height: calc(100% + 2rem); background: rgba(231, 76, 60, 0.08); }
         .timeline-item:last-child::after { display: none; }
         .timeline-year { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
         .timeline-content { color: var(--text-muted); }

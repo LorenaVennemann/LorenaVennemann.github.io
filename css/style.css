@@ -5,7 +5,7 @@
 }
 
 :root {
-    --primary: #00ff88;
+    --primary: #e74c3c;
     --secondary: #00ccff;
     --dark: #0a0a0a;
     --dark-light: #1a1a1a;
@@ -214,7 +214,7 @@ body {
 }
 
 .tag:hover {
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(231, 76, 60, 0.08);
     border-color: var(--primary);
     color: var(--primary);
     transform: translateY(-2px);
@@ -247,7 +247,7 @@ body {
     background: transparent;
     color: var(--primary);
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
 }
 
 .btn-secondary {
@@ -339,7 +339,7 @@ body {
 
 .card:hover {
     background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(0, 255, 136, 0.3);
+    border-color: rgba(231, 76, 60, 0.2);
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }

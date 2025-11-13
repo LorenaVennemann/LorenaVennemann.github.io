@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 import Navbar from './components/Navbar';
 import ParticlesBackground from './components/ParticlesBackground.tsx';
-import SplashScreen from './components/SplashScreen';
 import Home from './pages/Home';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
@@ -14,12 +12,7 @@ import './App.css';
 
 function AppContent() {
   const location = useLocation();
-  const [showSplash, setShowSplash] = useState(true);
-  
-  if (showSplash) {
-    return <SplashScreen onFinished={() => setShowSplash(false)} />;
-  }
-  
+
   return (
     <div className="app">
       <ParticlesBackground />

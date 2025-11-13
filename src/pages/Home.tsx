@@ -4,8 +4,16 @@ import './Home.css';
 const Home = () => {
   return (
     <main className="hero-section">
+      <div className="mega-slogan">
+        <div className="slogan-line">I BUILD</div>
+        <div className="slogan-line accent">CODE</div>
+        <div className="slogan-line">THAT WORKS</div>
+        <div className="slogan-line">DAMN WELL</div>
+      </div>
       <div className="hero-content">
-        <h1 className="hero-title">Lorena Jil Vennemann</h1>
+        <h1 className="hero-title">
+          <span className="name-lorena">Lorena</span> Jil Vennemann
+        </h1>
 
         <p className="hero-subtitle">
           4th-year Software Developer Apprentice @ SIX

@@ -1,23 +1,60 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import './About.css';
+import './Home.css';
 
 const About = () => {
   useEffect(() => {
-    // Force animations to restart on mount/reload
     const elements = document.querySelectorAll('.card, .section-title, .two-column > *, .skills-grid > *');
     elements.forEach((el) => {
       const htmlEl = el as HTMLElement;
       htmlEl.style.animation = 'none';
-      // Force reflow
       void htmlEl.offsetHeight;
       htmlEl.style.animation = '';
     });
   }, []);
 
+  const initialRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = initialRef.current;
+    if (!el)
+      return;
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio >= 0.25) {
+          el.classList.add('in-view');
+        } else {
+          el.classList.remove('in-view');
+        }
+
+        if (entry.intersectionRatio >= 0.6) {
+          el.classList.add('image-in');
+        } else {
+          el.classList.remove('image-in');
+        }
+      });
+    }, { threshold: [0, 0.25, 0.6] });
+
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <div className="page-container">
+      <section className="hero-section">
+        <div className="hero-content">
+          <h2 className="hero-title">CRAFTING <span className="slogan-line accent">SOFTWARE</span></h2>
+          <p className="hero-subtitle">built with care — since 2022</p>
+          <div className="hero-tags">
+            <span className="tag">Java & Spring Boot</span>
+            <span className="tag">React & TypeScript</span>
+            <span className="tag">Cloud Native</span>
+            <span className="tag">DevOps</span>
+          </div>
+        </div>
+      </section>
       <div className="page-header">
-        <img src="/assets/Images/myself.jpg" alt="Lorena Jil Vennemann" className="profile-image" />
         <h1 className="page-title">Lorena Jil Vennemann</h1>
         <p className="page-subtitle">
           Software Developer Apprentice specializing in Backend Development & Cloud-Native Technologies
@@ -29,6 +66,13 @@ const About = () => {
           <span className="tag">DevOps</span>
         </div>
       </div>
+
+      <section ref={initialRef as any} className="initial-section">
+        <div className="initial-letter">L</div>
+        <div className="initial-image">
+          <img src="/assets/Images/myself.jpg" alt="Lorena Jil Vennemann" />
+        </div>
+      </section>
 
       <section>
         <div className="card">

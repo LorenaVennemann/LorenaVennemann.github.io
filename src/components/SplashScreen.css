@@ -50,7 +50,7 @@
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 300;
-  color: #ffffff;
+  color: #e8dcc4;
   margin: 0;
   letter-spacing: 0.08em;
   animation: fadeInUp 1s ease-out;
@@ -73,14 +73,16 @@
 }
 
 .splash-subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.2s;
+  font-size: clamp(3rem, 2vw, 1.25rem);
+  color: #e74c3c;
   margin-top: 3rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 300;
   animation: fadeInUp 1s ease-out 0.3s backwards;
   position: relative;
+  cursor: pointer;
 }
 
 .splash-subtitle::before {

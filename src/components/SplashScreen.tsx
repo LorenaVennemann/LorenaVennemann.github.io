@@ -24,7 +24,7 @@ export default function SplashScreen({ onFinished }: SplashScreenProps) {
         <h1 className="splash-title">
           Lorena Jil Vennemann
         </h1>
-        <div className="splash-subtitle">Portfolio Developer</div>
+        <div className="splash-subtitle">Developer Portfolio</div>
       </div>
     </div>
   );
