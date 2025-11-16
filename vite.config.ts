@@ -8,7 +8,10 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false,
+    // Enable source maps for production builds to allow mapping minified
+    // runtime stack traces back to TypeScript/JSX source during debugging.
+    // This is temporary — we can revert to false after we fix the issue.
+    sourcemap: true,
     emptyOutDir: true
   }
 })
