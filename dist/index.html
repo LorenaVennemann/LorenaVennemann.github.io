@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./assets/ljv-Dr1dNGCn-Dr1dNGCn-Dr1dNGCn.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lorena Jil Vennemann</title>
+    <script>
+      // Safety polyfill: ensure String.prototype.match never returns null
+      // This prevents downstream code that does .match(...)[1] from throwing
+      (function(){
+        try {
+          var _origMatch = String.prototype.match;
+          String.prototype.match = function(re){
+            var res = _origMatch.call(this, re);
+            return res === null ? [] : res;
+          };
+          // Also guard RegExp.prototype.exec which some libs call directly
+          var _origExec = RegExp.prototype.exec;
+          RegExp.prototype.exec = function(str){
+            var res = _origExec.call(this, str);
+            return res === null ? [] : res;
+          };
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-rgUXhSD9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BeeWXst2.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

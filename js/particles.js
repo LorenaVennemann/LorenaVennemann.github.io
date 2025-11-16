@@ -49,12 +49,13 @@ class ParticleSystem {
         };
         const canvas = document.getElementById(canvasId);
         if (!canvas) {
-            throw new Error(`Canvas with id "${canvasId}" not found`);
+            // Canvas nicht gefunden, keine Initialisierung
+            return;
         }
         this.canvas = canvas;
         const ctx = canvas.getContext('2d');
         if (!ctx) {
-            throw new Error('Could not get 2D context from canvas');
+            return;
         }
         this.ctx = ctx;
         this.initCanvas();
@@ -114,19 +115,15 @@ class ParticleSystem {
     }
 }
 export { ParticleSystem, Particle };
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        const canvas = document.getElementById('particles-canvas');
-        if (canvas) {
-            const particleSystem = new ParticleSystem('particles-canvas', 80);
-            particleSystem.start();
-        }
-    });
-}
-else {
+function startParticlesIfCanvasExists() {
     const canvas = document.getElementById('particles-canvas');
     if (canvas) {
         const particleSystem = new ParticleSystem('particles-canvas', 80);
         particleSystem.start();
     }
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startParticlesIfCanvasExists);
+} else {
+    startParticlesIfCanvasExists();
 }

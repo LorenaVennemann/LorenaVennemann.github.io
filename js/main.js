@@ -38,7 +38,9 @@ class TypeWriter {
 class ScrollIndicatorManager {
     constructor(indicatorSelector = '.scroll-indicator') {
         this.indicator = document.querySelector(indicatorSelector);
-        this.init();
+        if (this.indicator) {
+            this.init();
+        }
     }
     
     init() {
